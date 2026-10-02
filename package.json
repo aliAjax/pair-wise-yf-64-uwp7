@@ -5,13 +5,13 @@
   "type": "module",
   "engines": { "node": "^18.17.0 || ^20.3.0 || >=21.0.0" },
   "scripts": {
-    "dev": "vite --mode ssr --host 0.0.0.0 --port 62029",
-    "build": "qwik build",
-    "build.client": "vite build",
-    "build.preview": "vite build --ssr src/entry.preview.tsx",
+    "dev": "NODE_OPTIONS=\"--import ./scripts/polyfill-node20.mjs\" vite --mode ssr --host 0.0.0.0 --port 62029",
+    "build": "NODE_OPTIONS=\"--import ./scripts/polyfill-node20.mjs\" qwik build",
+    "build.client": "NODE_OPTIONS=\"--import ./scripts/polyfill-node20.mjs\" vite build",
+    "build.preview": "NODE_OPTIONS=\"--import ./scripts/polyfill-node20.mjs\" vite build --ssr src/entry.preview.tsx",
     "build.types": "tsc --incremental --noEmit",
-    "preview": "qwik build preview && vite preview --host 0.0.0.0 --port 62029",
-    "start": "vite --mode ssr --host 0.0.0.0 --port 62029"
+    "preview": "NODE_OPTIONS=\"--import ./scripts/polyfill-node20.mjs\" qwik build preview && vite preview --host 0.0.0.0 --port 62029",
+    "start": "NODE_OPTIONS=\"--import ./scripts/polyfill-node20.mjs\" vite --mode ssr --host 0.0.0.0 --port 62029"
   },
   "devDependencies": {
     "@builder.io/qwik": "^1.20.1",

@@ -10,6 +10,7 @@
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
     "build.types": "tsc --incremental --noEmit",
+    "test:timing": "tsc -p tsconfig.test.json && node -e \"require('fs').mkdirSync('tmp/test',{recursive:true});require('fs').writeFileSync('tmp/test/package.json','{ \\\"type\\\": \\\"commonjs\\\" }')\" && node --test tmp/test/src/timing/",
     "preview": "qwik build preview && vite preview --host 0.0.0.0 --port 62029",
     "start": "vite --mode ssr --host 0.0.0.0 --port 62029"
   },

@@ -5,6 +5,7 @@ import { useForm, zodForm$ } from '@modular-forms/qwik';
 import { useSpeakLocale } from 'qwik-speak';
 import { z } from 'zod';
 import type { DocumentHead } from '@builder.io/qwik-city';
+import { TimingConsole } from '~/timing/timing-console';
 
 type SpeechStatus = 'queued' | 'speaking' | 'done' | 'skipped';
 type InterpreterStatus = 'active' | 'handoff' | 'standby';
@@ -205,6 +206,8 @@ export default component$(() => {
           {state.captions.filter((caption) => caption.roomId === state.activeRoomId).map((caption) => <div style="margin-top:10px;padding:10px;background:#f1f8f7;border-radius:10px" key={caption.id}><b>{caption.interpreter} · v{caption.revision}</b><p>{caption.text}</p></div>)}
         </aside>
       </section>
+
+      <TimingConsole />
 
       <section class="grid" style="margin-top:18px">
         <article class="panel">
